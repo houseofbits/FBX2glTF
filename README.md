@@ -339,7 +339,7 @@ TODO items can be found
 
 FBX2glTF is licensed under the [3-clause BSD license](LICENSE).
 
-## Additions in the [@houseofbits](https://www.github.com/houseofbits) fork 
+## Additions in the [@houseofbits](https://www.github.com/houseofbits/FBX2glTF) fork 
 
 - Up axis correction. Swap Y and Z. (For Autodesk scenes where Z axis is up) (--swap-yz)
 - Do not convert from centimeters to meters, aka. 0.01 scaling (--ignore-units)
