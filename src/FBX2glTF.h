@@ -122,7 +122,13 @@ struct GltfOptions {
   UseLongIndicesOptions useLongIndices = UseLongIndicesOptions::AUTO;
   /** Select baked animation framerate. */
   AnimationFramerateOptions animationFramerate = AnimationFramerateOptions::BAKE24;
-
   /** Temporary directory used by FBX SDK. */
   std::string fbxTempDir;
+
+  /** Swap Y and Z axis. Useful for Scenes exported from Autodesk products where normally Z is up. */
+  bool swapYZAxis{false};
+  /** Ignore conversion from centimeters to meters. */
+  bool ignoreUnitConversion{false};
+  /** Override binary buffer filename */
+  std::string binaryBufferFileName{"buffer.bin"};
 };

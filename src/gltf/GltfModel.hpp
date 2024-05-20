@@ -166,6 +166,6 @@ class GltfModel {
   }
   BufferData* buildDefaultBuffer(const GltfOptions& options) {
     return options.outputBinary ? new BufferData(binary)
-                                : new BufferData(extBufferFilename, binary, options.embedResources);
+                                : new BufferData(options.binaryBufferFileName, binary, options.embedResources);
   }
 };

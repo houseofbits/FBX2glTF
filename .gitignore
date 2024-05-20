@@ -1,3 +1,4 @@
+.idea
 npm/fbx2gltf/bin/Darwin/FBX2glTF
 npm/fbx2gltf/bin/Linux/FBX2glTF
 npm/fbx2gltf/bin/Windows_NT/FBX2glTF.exe
@@ -5,3 +6,5 @@ npm/fbx2gltf/node_modules/
 npm/tests/node_modules/
 npm/tests/test/*.js
 npm/tests/test/*.js.map
+sdk
+cmake-build-debug

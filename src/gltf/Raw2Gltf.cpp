@@ -805,7 +805,7 @@ ModelData* Raw2Gltf(
       extensionsRequired.push_back(KHR_DRACO_MESH_COMPRESSION);
     }
 
-    json glTFJson{{"asset", {{"generator", "FBX2glTF v" + FBX2GLTF_VERSION}, {"version", "2.0"}}},
+    json glTFJson{{"asset", {{"generator", "FBX2glTF@houseofbits v" + FBX2GLTF_VERSION}, {"version", "2.0"}}},
                   {"scene", rootScene.ix}};
     if (!extensionsUsed.empty()) {
       glTFJson["extensionsUsed"] = extensionsUsed;

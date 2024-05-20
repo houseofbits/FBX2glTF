@@ -152,6 +152,16 @@ int main(int argc, char* argv[]) {
       gltfOptions.useBlendShapeTangents,
       "Include blend shape tangents, if reported present by the FBX SDK.");
 
+  app.add_flag(
+      "--swap-yz",
+      gltfOptions.swapYZAxis,
+      "Up axis correction. Swap Y and Z. (For Autodesk scenes where Z axis is up)");
+
+  app.add_flag(
+      "--ignore-units",
+      gltfOptions.ignoreUnitConversion,
+      "Do not convert from centimeters to meters");
+
   app.add_option(
          "-k,--keep-attribute",
          [&](std::vector<std::string> attributes) -> bool {
@@ -314,6 +324,7 @@ int main(int argc, char* argv[]) {
     // in gltf mode, we create a folder and write into that
     outputFolder = fmt::format("{}_out/", outputPath.c_str());
     modelPath = outputFolder + FileUtils::GetFileName(outputPath) + ".gltf";
+    gltfOptions.binaryBufferFileName = FileUtils::GetFileName(outputPath) + ".bin";
   }
   if (!FileUtils::CreatePath(modelPath.c_str())) {
     fmt::fprintf(stderr, "ERROR: Failed to create folder: %s'\n", outputFolder.c_str());
@@ -369,7 +380,7 @@ int main(int argc, char* argv[]) {
 
   assert(!outputFolder.empty());
 
-  const std::string binaryPath = outputFolder + extBufferFilename;
+  const std::string binaryPath = outputFolder + gltfOptions.binaryBufferFileName;
   FILE* fp = fopen(binaryPath.c_str(), "wb");
   if (fp == nullptr) {
     fmt::fprintf(stderr, "ERROR:: Couldn't open file '%s' for writing.\n", binaryPath);
